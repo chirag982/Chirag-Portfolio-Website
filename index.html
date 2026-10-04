@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chirag's Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* 1. THE COLORS (Just change these hex codes if you want to tweak them) */
+    body {
+      margin: 0;
+      background-color: #CDC6BE; /* The main paper cream color */
+      color: #060504;            /* The ink black text color */
+      font-family: 'Georgia', serif;
+      padding-top: 60px;
+    }
+
+    .fixed-navbar {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: #CDC6BE;
+        color: black;
+        width: 100%;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: clamp(1.2rem, 3vw, 2rem);
+        text-align: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        box-sizing: border-box;
+        border-bottom: 1px solid black;
+        z-index: 9999;
+    }
+
+    .Header-box {
+        margin: 20px;
+        background-color: black;
+        color: #CDC6BE;
+        font-family: 'Georgia', serif;
+        font-size: clamp(3rem, 15vw, 20rem);
+        text-align: center;
+    }
+
+    .main-content {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 50px;
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .section-box-1 {
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-top: 20px;
+      width: 35%;
+      min-width: 280px;
+      flex: 1 1 300px;
+      box-sizing: border-box;
+    }
+
+    .heading-1 {
+        line-height: 0.9;
+        font-size: clamp(2rem, 5.5vw, 6rem);
+        letter-spacing: -0.05em;
+        transform: scaleY(1.15);
+        margin-bottom: 40px;
+    }
+    .section-box-1 p {
+        font-size: clamp(1rem, 1.8vw, 1.5rem);
+    }
+
+    .section-box-2 {
+      border-left: 1px solid #060504;
+      padding-left: 15px;
+      padding-right: 15px;
+      width: 65%;
+      min-width: 280px;
+      flex: 2 1 400px;
+      box-sizing: border-box;
+    }
+
+    .section-box-1 img, .section-box-2 img {
+        width: 100%;
+        height: auto;
+        border: 1px solid black;
+    }
+
+    .section-box-2 P {
+      padding-top: 30px;
+      /* Switched from raw vw to clamp for controlled sizing */
+      font-size: clamp(1.2rem, 2.5vw, 2.5rem);
+      box-sizing: border-box;
+      letter-spacing: -0.03em;
+      font-weight: bolder;
+      transform: scaleY(1.3); /* Lowered scale factor to prevent vertical text overlap */
+      overflow: hidden;
+      padding-bottom: 30px;
+    }
+
+    .sub-heading {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: clamp(4rem, 8vw, 8rem);
+        background-color: black;
+        color: #CDC6BE;
+        margin: 20px;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .second-main-content {
+        margin: 20px;
+    }
+
+    .second-main-content-heading {
+        font-size: clamp(2rem, 5vw, 4rem);
+        width: 100%;
+        background-color: #060504;
+        color: #CDC6BE;
+        text-align: center;
+    }
+
+    .second-main-content-data {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 20px;
+        flex-wrap: wrap; /* Allows stacking on mobile */
+        gap: 15px;
+    }
+    
+    .content-data-heading {
+        width: 35%;
+        min-width: 250px;
+        font-size: clamp(1.2rem, 2.2vw, 2.5rem);
+        padding: 10px;
+        font-weight: bold;
+        box-sizing: border-box;
+    }
+    .content-data-description {
+        width: 60%;
+        min-width: 250px;
+        padding: 10px 20px;
+        border-left: 1px solid black;
+        font-size: clamp(1rem, 1.5vw, 1.5rem);
+        box-sizing: border-box;
+    }
+
+    .third-container {
+        margin: 20px;
+    }
+
+    .third-container-header {
+        font-size: clamp(2rem, 5vw, 4rem);
+        background-color: black;
+        color: #CDC6BE;
+        text-align: center;
+    }
+
+    .third-container-content {
+        display: flex;
+        margin-left: 5%;
+        margin-right: 5%;
+        justify-content: space-between;
+        flex-wrap: wrap; /* Allows stamp image and list to stack gracefully */
+        gap: 20px;
+    }
+
+    .stamp-wrapper {
+        box-sizing: border-box;
+        width: 20%;
+        min-width: 150px;
+        padding: 10px;
+        margin: 0 auto; /* Center image on stack */
+    }
+
+    .stamp-wrapper img {
+        width: 100%;
+        height: auto;
+        box-sizing: border-box;
+    }
+
+    .stamp-content {
+        box-sizing: border-box;
+        width: 75%;
+        padding: 280px;
+        padding: 10px;
+        font-size: clamp(1rem, 1.5vw, 1.5rem);
+    }    
+
+    .connect-with-me {
+        margin: 20px;
+    }
+
+    .connect-with-me-header {
+       text-align: center;
+       color: #D1462F;
+       display: inline-block;
+    }
+    .connect-with-me-content {
+        font-size: clamp(1rem, 1.3vw, 1.5rem);
+        padding-bottom: 20px;
+    }
+
+    .connect-with-me-links {
+        padding: 10px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap; /* Stacks links neatly on mobile */
+        gap: 15px;
+    }
+    
+    .connect-with-me-links a,
+    .connect-with-me-links label {
+      text-decoration: none;
+      color: #060504;
+      font-size: clamp(1rem, 1.2vw, 1.3rem);
+    }
+    
+    .red-badge {
+      background-color: #D1462F;
+      color: #E2DEDB;
+      font-family: sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+      padding: 2px 6px;
+      text-transform: uppercase;
+      letter-spacing: normal;
+      transform: none;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    /* -------------------------------------------------------------
+       RESPONSIVE MEDIA QUERIES (Mobile and Tablet adjustments)
+       ------------------------------------------------------------- */
+    @media screen and (max-width: 768px) {
+      .main-content {
+        flex-direction: column;
+      }
+
+      .section-box-1, 
+      .section-box-2 {
+        width: 100%;
+        border-left: none; /* Remove side border on mobile stacked layout */
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .section-box-2 {
+        border-top: 1px solid #060504; /* Change vertical border to horizontal separator */
+        padding-top: 20px;
+      }
+
+      .content-data-heading,
+      .content-data-description {
+        width: 100%;
+        border-left: none;
+        padding: 10px 0;
+      }
+
+      .content-data-description {
+        border-top: 1px dashed #060504;
+      }
+
+      .third-container-content {
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .stamp-wrapper,
+      .stamp-content {
+        width: 100%;
+      }
+
+      .connect-with-me-links {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+    <div class="fixed-navbar">The Portfolio</div>
+
+    <div class="Header-box">CHIRAG</div>
+    
+    <div class="main-content">
+        <div class="section-box-1">
+            <div class="heading-1">BOB THE BUILDER!</div>
+            <img src="image1.jpg" alt="computer image">
+            <p>
+                I am Passionate about creating Programs, interactive Websites, 
+                automating the task, building desktop applications. A Geek and Nerd sitting in the room 
+                building things like 'Bob The Builder'.
+            </p>
+        </div>
+        <div class="section-box-2">
+            <img src="image.jpg" alt="coder's image">
+            <p>
+                DIGITALLY DRAINED, BUT LOVES BEING A DEVELOPER BASED IN PUNJAB, INDIA.
+                <br>
+                <span style="color: #D1462F;">FREELANCER</span>
+                <br>
+                <span style="color: #D1462F;">SOFTWARE DEVELOPER</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="second-main-content">
+        <div class="second-main-content-heading">PROJECTS</div>
+        
+        <div class="second-main-content-data">
+            <div class="content-data-heading">SHELF SUPPLY TRACKER <span class="red-badge">NEW</span></div>
+            <div class="content-data-description">
+                A desktop application built with Python and CustomTkinter for 
+                managing shop operations including inventory, suppliers, and billing. 
+                This application provides a modern, intuitive interface for small 
+                business management. <a href="#">Go to project</a>
+            </div>
+        </div> 
+        
+        <hr>
+
+        <div class="second-main-content-data">
+            <div class="content-data-heading">AI CODING AGENT  <span class="red-badge">NEW</span></div>
+            <div class="content-data-description">
+                This is the Agent that generates the python code 
+                files as per the user requirement and whatever they 
+                ask it to generate and it generates the executable 
+                files for it. <a href="#">Go to project</a>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="second-main-content-data">
+            <div class="content-data-heading">HEART DISEASE RISK PREDICTION MODEL</div>
+            <div class="content-data-description">
+                This is a heart disease risk prediction model that predicts whether the 
+                patient might have a heart disease or not in the near future based on 
+                their medical data. <a href="#">Go to project</a> 
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="second-main-content-data">
+            <div class="content-data-heading">E-COMMERCE WEBSITE</div>
+            <div class="content-data-description">
+                A full-stack e-commerce website built with Django, 
+                featuring product browsing, user accounts, a session-based 
+                shopping cart, checkout, order management, and PayPal integration. 
+                <a href="#">Go to project</a>
+            </div>
+        </div>
+
+        <hr>
+
+         <div class="second-main-content-data">
+            <div class="content-data-heading">RELEVANCE BASED SEARCH ENGINE</div>
+            <div class="content-data-description">
+                Developed a relevance-based web search engine using Python using Requests 
+                and BeautifulSoups with seed URL generation, controlled crawling, link 
+                filtering and URL normalization. <a href="#">Go to project</a>
+            </div>
+        </div>
+
+        <hr>
+
+    </div>
+
+    <div class="third-container">
+        <div class="third-container-header">ABOUT THE BUILDER</div>
+        <div class="third-container-content">
+            <div class="stamp-wrapper">
+                <img src="stamp.png" alt="personal stamp">
+            </div>
+            <div class="stamp-content">
+                <ul>
+                    <li>I am a passionate developer who loves breaking down complex problems</li>
+                    <li>Building practical software solutions.</li>
+                    <li>From frontend interactive elements to deep backend models, I look at every project as a canvas for clean code.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="connect-with-me">
+            <div class="connect-with-me-content">
+                <span class="connect-with-me-header">Let's connect!</span> 
+                Ready for the next build. I split my focus between 
+                helping independent clients execute their digital 
+                visions as a freelancer, and searching for the right 
+                engineering team to call home. I am actively looking 
+                to join a company where I can contribute robust code, 
+                scale real-world applications, and learn alongside 
+                top-tier developers. Got an interesting project or 
+                a position to fill?
+                <br>
+                Just 
+                <span style="color: #D1462F;">
+                    Email me or Message Me on LinkedIn!
+                </span>
+                <br>
+                Thank You!
+                 
+            </div>
+            <hr>
+            <div class="connect-with-me-links">
+                <a href="https://github.com/chirag982" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/chiraggxg" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                <a href="https://www.youtube.com/@chiraggxg" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i> Youtube</a>
+                <label><i class="fa-solid fa-envelope"></i> chirag178g@gmail.com</label>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
