@@ -130,23 +130,20 @@
     /* --- NEW BADGE STYLES (the fix) --- */
     .red-badge {
       display: inline-block;
-      position: relative;
-      top: -2px;
-      background-color: var(--accent-color);
-      color: var(--bg-color);
+      background-color: var(--accent-color); /* Retro red */
+      color: #FFFFFF; /* Clean white text */
       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-      font-size: 0.6rem;
+      font-size: 0.65rem;
       font-weight: bold;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.5px;
       line-height: 1;
-      padding: 6px 8px 5px;
-      border: 2px solid var(--text-color);
-      border-radius: 2px;
-      transform: rotate(-4deg);
-      box-shadow: 2px 2px 0 var(--text-color);
-      white-space: nowrap;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      padding: 4px 6px;
+      border-radius: 0; /* Sharp corners */
+      margin-left: 8px;
+      vertical-align: middle;
+      position: relative;
+      top: -1px; /* Slight adjustment to align with text */
     }
 
     .project-card:hover .red-badge {
